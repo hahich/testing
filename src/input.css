@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss";
+@theme {
+  --font-*: initial;
+  --color-primary: #6E5BFB; 
+  --color-body: #444444;
+  --color-heading: #1D1D1F;
+  --font-instrument_sans: "Instrument Sans", sans-serif;
+  --font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+  --breakpoint-sm: 36rem;
+  --animate-scrolling: scrolling 30s linear infinite;
+  @keyframes scrolling {
+    0% {
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+}
+@layer components {
+  
+}
+@layer base {
+  body {
+    @apply text-base font-medium text-body  font-instrument_sans;
+  }
+  .container {
+    @apply pe-4 ps-4 mx-auto;
+  }
+  h1,h2,h3,h4,h5,h6{
+    @apply font-plus-jakarta-sans
+  }
+}
+@layer utility {
+ 
+}

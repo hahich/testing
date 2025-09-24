@@ -1,0 +1,140 @@
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.playbtn::after,
+.playbtn::before {
+  content: "";
+  position: absolute;
+  background-image: conic-gradient(from var(--angle), #6E5BFB 70%, oklch(66.7% 0.295 322.15));
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 2px;
+  border-radius: calc(infinity * 1px);
+  animation: 2s spin-1 linear infinite;
+  z-index: -1;
+}
+
+.playbtn::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin-1 {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+.up {
+  transform: translateY(0px);
+}
+
+.down {
+  transform: translateY(40px);
+}
+
+.scrolling:hover>div {
+  animation-play-state: paused;
+}
+
+.scrolling-right {
+  animation-direction: reverse;
+  animation-duration: 60s;
+}
+
+.scrolling-left {
+  animation-duration: 60s;
+}
+
+/* animation 3 border */
+.sweep-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.sweep-wrap .line {
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 150px;
+  pointer-events: none;
+}
+
+.sweep-wrap .line.left {
+  left: -50%;
+  background: linear-gradient(90deg, #5B7BFB, #5B7BFB00);
+  animation: sweepLeft 2.2s ease-out infinite;
+}
+
+.sweep-wrap .line.right {
+  right: -50%;
+  background: linear-gradient(270deg, #5B7BFB, #5B7BFB00);
+  animation: sweepRight 2.2s ease-out infinite;
+}
+
+.sweep-wrap .line.up {
+  left: 50%;
+  top: auto;
+  bottom: 100%;
+  width: 1px;
+  height: 150px;
+  background: linear-gradient(0deg, #5B7BFB, #5B7BFB00);
+  animation: sweepUp 2.2s ease-out infinite;
+  transform: translate(-50%, 0);
+}
+
+.sweep-wrap .line.delay-1 {
+  animation-delay: 0s;
+}
+
+/* FAQ details/summary styling */
+img,
+svg {
+  max-width: 100%;
+}
+
+.card-item-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(292, 42%, 14%);
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+}
+
+.minus-icon {
+  display: none;
+}
+
+.card-item-description {
+  font-size: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 200ms ease;
+}
+
+.icon-footer::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  background: url("img/icon_footer.svg") center/contain no-repeat;
+  width: 104px;
+  height: 104px;
+  z-index: 1;
+  animation: circTxt-rotating 8s linear infinite;
+}
